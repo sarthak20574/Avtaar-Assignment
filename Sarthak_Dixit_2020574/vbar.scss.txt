@@ -1,0 +1,24 @@
+.navbar {
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+
+    .more-menu {
+      position: relative;
+
+      ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+      }
+
+      &:hover ul {
+        display: block;
+      }
+    }
+  }
+}

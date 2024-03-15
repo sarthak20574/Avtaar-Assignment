@@ -1,0 +1,46 @@
+import React, { useState, useEffect } from 'react';
+import './Navbar.scss';
+
+const Navbar = () => {
+  const [menuItems, setMenuItems] = useState([
+    { id: 1, label: 'Home' },
+    { id: 2, label: 'Electronics' },
+    { id: 3, label: 'Books' },
+{ id: 4, label: 'Music' },
+{ id: 3, label: 'Movies' },
+{ id: 3, label: 'Clothing' },
+   ]);
+  const [moreItems, setMoreItems] = useState([]);
+
+  useEffect(() => {
+    const handleResize = () => {
+         };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <nav className="navbar">
+      <ul className="menu">
+        {menuItems.map(item => (
+          <li key={item.id}><a href="#">{item.label}</a></li>
+        ))}
+        {moreItems.length > 0 && (
+          <li className="more-menu">
+            <a href="#">More</a>
+            <ul>
+              {moreItems.map(item => (
+                <li key={item.id}><a href="#">{item.label}</a></li>
+              ))}
+            </ul>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;
